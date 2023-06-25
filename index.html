@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HT6</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section class="content">
+        <div class="text-box">
+            <h3 class="text-box__subtitle">Fetured Items</h3>
+            <p class="text-box__text">Shop for items based on what we featured in this week</p>
+        </div>
+        <div class="product-box">
+            <!-- <div class="product">
+                <img class="product__img" src="#" alt="items_pic">
+                <div class="product__info">
+                    <h5 class="product__name">ELLERY X M'O CAPSULE</h5>
+                    <p class="product__text">Known for her sculptural takes on traditional tailoring, Australian
+                        arbiter
+                        of
+                        cool
+                        Kym Ellery teams up with Moda Operandi.</p>
+                    <h6 class="product__price">$52.00</h6>
+                </div>
+            </div> -->
+
+        </div>
+        <div class="button">
+            <a class="button-text" href="#">Browse All Product</a>
+        </div>
+    </section>
+    <script src="data.js"></script>
+    <script>
+        const productBox = document.querySelector('.product-box');
+        const itemData = JSON.parse(productData);
+        itemData.forEach(product => {
+            const productEl = document.createElement('div');
+            productEl.classList.add('product');
+            productBox.append(productEl)
+
+            const productImg = document.createElement('img');
+            productImg.classList.add('product__img');
+            productImg.src = product.img;
+            productImg.alt = 'item-pic';
+            productEl.append(productImg);
+
+            const productInfo = document.createElement('div');
+            productInfo.classList.add('product__info');
+            productEl.append(productInfo);
+
+            const productName = document.createElement('a');
+            productName.classList.add('product__info_name');
+            productName.href = '#';
+            productName.textContent = product.item;
+            productInfo.append(productName);
+
+            const productText = document.createElement('p');
+            productText.classList.add('product__info_text');
+            productText.textContent = product.text;
+            productInfo.append(productText);
+
+            const productPrice = document.createElement('p');
+            productPrice.classList.add('product__info_price');
+            productPrice.textContent = product.price;
+            productInfo.append(productPrice);
+        });
+    </script>
+</body>
+
+</html>
